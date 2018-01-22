@@ -7,12 +7,14 @@ Seafile docker image based on Debian
 ## Features ##
 * Auto configuration on first run, based on the manual setup described in the official  [documentation](https://manual.seafile.com/deploy/using_mysql.html)
 * Auto import previous installation, including non docker installation
-* Support FASTCGI mode
+* Support FASTCGI mode. **From version 6.2, it is recommended to use [WSGI](https://manual.seafile.com/changelog/server-changelog.html)**
 * Upgrade Seafile with one simple command
 
 ## Supported tags ##
 Tags of this image follow Seafile version:
 * latest - Development build based on the latest Seafile version
+* 6.2.4 - Seafile server 6.2.4
+* 6.1.2 - Seafile server 6.1.2
 * 6.1.1 - Seafile server 6.1.1
 * 6.0.7 - Seafile server 6.0.7
 
@@ -60,7 +62,7 @@ Tags of this image follow Seafile version:
 
   * **SERVER_NAME** (default is *127.0.0.1*): IP or domain name of the server
 
-  * **FASTCGI** (default is *false*): If true or True then run seafile in fastcgi mode
+  * **FASTCGI** (default is *false*): If true or True then run seafile in fastcgi mode. From version 6.2, it is recommended to use [WSGI](https://manual.seafile.com/changelog/server-changelog.html).
 
   * **MYSQL_SERVER** (required):  MySQL/Maria DB Server name or ip, could be the name of the database service in docker-compose.yml file.
 

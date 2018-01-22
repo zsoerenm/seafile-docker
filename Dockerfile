@@ -7,7 +7,7 @@ ENV \
     EXPOSED_ROOT_DIR=/seafile \
     SEAFILE_ROOT_DIR=/opt/seafile \
     LATEST_SERVER_DIR=/opt/seafile/seafile-server-latest \
-    SEAFILE_VERSION=6.1.2 \
+    SEAFILE_VERSION=6.2.4 \
     SEAFILE_URL_PATTERN=https://download.seadrive.org/seafile-server_VERSION_x86-64.tar.gz
 
 RUN \
@@ -22,9 +22,11 @@ RUN \
         python-mysqldb \
         python-urllib3 \
         python-memcache \
+        python-pip \
     && apt-get clean \
     && apt-get autoremove -y \
-    && rm -rf /var/lib/apt/lists/* /var/log/*
+    && pip install --trusted-host pypi.python.org --no-cache-dir requests_oauthlib \
+    && rm -rf /var/lib/apt/lists/* /var/log/* /tmp/*
 
 COPY ["script", "/usr/local/bin/"]
 
